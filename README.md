@@ -20,5 +20,5 @@ npm run build
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### View
+![Screenshot app](https://github.com/Eriniy/reform-vue-todolist/blob/master/view_app.png)
