@@ -1,0 +1,180 @@
+@import 'variables.scss';
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    font-family: 'Open Sans', sans-serif;
+    background-color: $main-bg-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+
+.todo {
+    width: 765px;
+    height: 100%;
+    border: #000 solid 1px; // потом убрать
+    text-align: center;
+    color: $main-light-color;
+    overflow: hidden;
+
+    &__header {
+        padding: 20px 0;
+        
+        h1 {
+            font-size: 35px;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: $main-dark-color;
+        }
+    }
+
+    &__filter {
+        background-color: $main-dark-color;
+        display: inline-flex;
+        padding: 20px 134px;
+        align-items: flex-start;
+        gap: 90px;
+        margin: 20px 0;
+
+        &-link {
+            color: $main-bg-color;
+            text-decoration: none;
+            text-transform: uppercase;
+            cursor: pointer;
+
+            &--active {
+                color: $main-accent-color;
+            }
+
+            &:hover {
+                color: $main-accent-color;
+                text-decoration: underline;
+            }
+        }
+
+    }
+
+    &__add-field {
+        display: flex;
+        justify-content: center;
+        border-bottom: 1px solid #ebebeb;
+
+        input {
+            border: 0;
+            padding: 10px;
+            font-size: 18px;
+            flex: 1;
+        }
+
+        &-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 0;
+            background-color: transparent;
+            width: 65px;
+            height: 65px;
+            cursor: pointer;
+            padding-right: 5px;
+
+            &:hover {
+                background-color: #faf9f9;
+                svg {
+                    path {
+                        stroke: $main-dark-color;
+                    }
+                }
+            }
+        }
+    }
+
+    &__container {
+        width: 70%;
+        // height: 400px;
+        margin: 0 auto;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        height: 450px;
+        overflow: auto;
+
+        &::-webkit-scrollbar{
+            display: none;
+        }
+
+
+        &-item {
+            $self: &;
+            padding: 20px;
+            display: flex;
+            // flex: 1;
+            align-items: center;
+            gap: 20px;
+            border-radius: 10px;
+            background-color: $main-dark-color;
+            margin: 10px 0;
+
+            &--completed {
+                text-decoration: line-through;
+
+                #{$self}-toggle {
+                    path {
+                        display: block;
+                    }
+                }
+
+                #{$self}-toggle,
+                #{$self}-toggle:hover {
+                    background-color: $main-accent-color;
+                }
+            }
+
+            &-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: $main-light-color;
+                border-radius: 50%;
+                height: 30px;
+                width: 30px;
+                border: 3px solid $main-accent-color;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #EFE1FC   ;
+                }
+
+                path {
+                    stroke: $main-light-color;
+                    display: none;
+                }
+            }
+
+            &-remove:hover {
+                cursor: pointer;
+                
+                svg {
+                    path {
+                        fill: $main-orange-color;
+                        transition: fill .5s;
+                    }
+                }
+            }
+
+            p {
+                font-size: 18px;
+                flex: 1;
+                text-align: left;
+            }
+        }
+    }
+}
