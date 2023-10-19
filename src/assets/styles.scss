@@ -170,10 +170,23 @@ body {
                 }
             }
 
-            p {
+            &-text {
                 font-size: 18px;
                 flex: 1;
                 text-align: left;
+            }
+
+            &-edit {
+                font-size: 18px;
+                color: $main-light-color;
+                background-color: $main-dark-color;
+                width: 100%;
+                border: none;
+                border-bottom: 1px solid $main-light-color;
+
+                &:focus {
+                    outline: none;
+                }
             }
         }
     }
